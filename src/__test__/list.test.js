@@ -122,5 +122,19 @@ describe('List insert at index', () => {
         const inserted = newList.get(3);
         expect(newList.tail).toEqual(inserted);
     });
+});
 
+describe('List delete middle node', () => {
+    it('should delete the middle Node from the list', () => {
+        const newList = new SinglyLinkedList;
+        newList.push('first');
+        newList.push('second');
+        newList.push('third');
+        const middle = newList.middle();
+        const prev = newList.get(0);
+        expect(middle.val).toEqual('second');
+        expect(middle.next).toBeNull();
+        expect(newList.length).toEqual(2);
+        expect(prev.next.val).toEqual('third')
+    });
 });
