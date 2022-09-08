@@ -20,3 +20,8 @@ a mini demo for SLL
 
 - Add push method to list, it adds node to the end of the list
 - Add push test
+
+### Get
+
+- Add get method to list, it gets a node at a specific index, list is zero-index
+- Add get test
