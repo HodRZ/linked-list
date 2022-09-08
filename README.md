@@ -31,3 +31,9 @@ a mini demo for SLL
 - Add insert method to list, it inserts a node at a specific index
 
 - Add insert test
+
+### Delete from the middle
+
+- Add middle method to list, it deletes the middle node in the list
+
+- Add middle test
