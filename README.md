@@ -42,3 +42,8 @@ a mini demo for SLL
 
 - Add update method to list, it updates a spicific node value
 - Add update test
+
+### Pop
+
+- Add pop method to list, it removes the list's tail
+- Add pop test

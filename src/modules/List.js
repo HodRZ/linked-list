@@ -64,6 +64,24 @@ class SinglyLinkedList {
         updatedNode.val = val
         return updatedNode
     }
+    pop() {
+        if (!this.head) return null;
+        if (this.length === 1) {
+            const removed = this.head
+            this.head.next = null;
+            this.tail = null;
+            this.head = null;
+            this.length--;
+            return removed
+        } else {
+            const newTail = this.get(this.length - 2);
+            const oldTail = this.tail;
+            this.tail = newTail;
+            this.tail.next = null;
+            this.length--;
+            return oldTail
+        }
+    }
 };
 
 module.exports = { SinglyLinkedList }

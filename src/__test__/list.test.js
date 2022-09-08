@@ -149,3 +149,33 @@ describe('List update', () => {
         expect(updated.val).toEqual('updated')
     });
 });
+
+describe('List pop', () => {
+    it('should pop the tail from the list', () => {
+        const newList = new SinglyLinkedList;
+        newList.push('first');
+        newList.push('second');
+        newList.push('third');
+        const oldTail = newList.pop();
+        expect(newList.tail.val).toEqual('second');
+        expect(newList.tail.next).toBeNull();
+        expect(oldTail.next).toBeNull();
+        expect(oldTail.val).toEqual('third')
+        expect(newList.length).toEqual(2)
+    });
+    it('should empty the list if it contains one node', () => {
+        const newList = new SinglyLinkedList;
+        newList.push('first');
+        const oldTail = newList.pop();
+        expect(newList.tail).toBeNull();
+        expect(newList.head).toBeNull();
+        expect(oldTail.next).toBeNull();
+        expect(oldTail.val).toEqual('first')
+        expect(newList.length).toEqual(0)
+    });
+    it('should return null if the list is empty', () => {
+        const newList = new SinglyLinkedList
+        const poped = newList.pop()
+        expect(poped).toBeNull
+    });
+});
