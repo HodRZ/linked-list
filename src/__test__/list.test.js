@@ -138,3 +138,14 @@ describe('List delete middle node', () => {
         expect(prev.next.val).toEqual('third')
     });
 });
+
+describe('List update', () => {
+    it('should update the selected node value', () => {
+        const newList = new SinglyLinkedList;
+        newList.push('first');
+        newList.push('second');
+        newList.push('third');
+        const updated = newList.update(1, 'updated')
+        expect(updated.val).toEqual('updated')
+    });
+});

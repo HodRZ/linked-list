@@ -37,3 +37,8 @@ a mini demo for SLL
 - Add middle method to list, it deletes the middle node in the list
 
 - Add middle test
+
+### Update
+
+- Add update method to list, it updates a spicific node value
+- Add update test

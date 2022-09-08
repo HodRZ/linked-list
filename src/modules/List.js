@@ -59,6 +59,11 @@ class SinglyLinkedList {
         this.length--;
         return removed
     }
+    update(idx, val) {
+        const updatedNode = this.get(idx)
+        updatedNode.val = val
+        return updatedNode
+    }
 };
 
 module.exports = { SinglyLinkedList }
