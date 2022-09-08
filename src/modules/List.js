@@ -51,6 +51,14 @@ class SinglyLinkedList {
         this.length++;
         return this
     }
+    middle() {
+        const removed = this.get(Math.floor(this.length / 2));
+        const prev = this.get(Math.floor(this.length / 2) - 1);
+        prev.next = removed.next;
+        removed.next = null;
+        this.length--;
+        return removed
+    }
 };
 
 module.exports = { SinglyLinkedList }
