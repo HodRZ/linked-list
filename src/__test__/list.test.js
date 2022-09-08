@@ -80,3 +80,47 @@ describe('List get by index', () => {
         expect(nodeAtMinus).toBeNull();
     });
 });
+
+describe('List insert at index', () => {
+    it('should insert a node at a specific index in the list', () => {
+        const newList = new SinglyLinkedList;
+        newList.push('first');
+        newList.push('second');
+        newList.push('third');
+        newList.insert(1, 'new second');
+        const inserted = newList.get(1);
+        const prev = newList.get(0)
+        expect(newList.length).toEqual(4);
+        expect(prev.next.val).toEqual('new second')
+        expect(inserted.next.val).toEqual('second');
+    });
+    it('should return null if index is less than zero or our of range for the list', () => {
+        const newList = new SinglyLinkedList;
+        newList.push('first');
+        newList.push('second');
+        newList.push('third');
+        const minusNode = newList.insert(-1, 'minus')
+        const ourOfRange = newList.insert(10, 'out of range')
+        expect(minusNode).toBeNull()
+        expect(ourOfRange).toBeNull()
+    });
+    it('should insert node as Head if index is 0', () => {
+        const newList = new SinglyLinkedList;
+        newList.push('first');
+        newList.push('second');
+        newList.push('third');
+        newList.insert(0, 'new first');
+        const inserted = newList.get(0);
+        expect(newList.head).toEqual(inserted);
+    });
+    it('should insert node as Tail if index is equal to list length', () => {
+        const newList = new SinglyLinkedList;
+        newList.push('first');
+        newList.push('second');
+        newList.push('third');
+        newList.insert(2, 'new tail');
+        const inserted = newList.get(3);
+        expect(newList.tail).toEqual(inserted);
+    });
+
+});

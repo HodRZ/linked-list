@@ -40,6 +40,17 @@ class SinglyLinkedList {
         }
         return entry
     }
+    insert(idx, val) {
+        if (idx < 0 || idx >= this.length) return null;
+        if (idx === 0) return this.unshift(val);
+        if (idx === (this.length - 1)) return this.push(val);
+        const inserted = new Node(val)
+        const prev = this.get(idx - 1);
+        inserted.next = prev.next;
+        prev.next = inserted;
+        this.length++;
+        return this
+    }
 };
 
 module.exports = { SinglyLinkedList }

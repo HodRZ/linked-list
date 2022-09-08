@@ -25,3 +25,9 @@ a mini demo for SLL
 
 - Add get method to list, it gets a node at a specific index, list is zero-index
 - Add get test
+
+### Insert
+
+- Add insert method to list, it inserts a node at a specific index
+
+- Add insert test
