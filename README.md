@@ -1,3 +1,3 @@
 # Singly Linked List
 
-a mini demo for SSL
+a mini demo for SLL
