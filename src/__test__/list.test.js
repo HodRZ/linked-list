@@ -148,6 +148,14 @@ describe('List update', () => {
         const updated = newList.update(1, 'updated')
         expect(updated.val).toEqual('updated')
     });
+    it('should return null if the selected index is out of range', () => {
+        const newList = new SinglyLinkedList;
+        newList.push('first');
+        newList.push('second');
+        newList.push('third');
+        const updated = newList.update(5, 'updated')
+        expect(updated).toBeNull()
+     });
 });
 
 describe('List pop', () => {

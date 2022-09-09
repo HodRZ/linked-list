@@ -61,8 +61,12 @@ class SinglyLinkedList {
     }
     update(idx, val) {
         const updatedNode = this.get(idx)
-        updatedNode.val = val
-        return updatedNode
+        if (updatedNode) {
+            updatedNode.val = val
+            return updatedNode
+        }
+        return null
+
     }
     pop() {
         if (!this.head) return null;
