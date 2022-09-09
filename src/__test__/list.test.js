@@ -286,7 +286,7 @@ describe('List delete', () => {
         expect(shifted).toBeNull()
     });
 });
-describe('List removeSingle', () => {
+describe('List Reset', () => {
     it('should reset a list containing a single node after deleting said node', () => {
         const newList = new SinglyLinkedList;
         newList.push('first');
