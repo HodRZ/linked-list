@@ -286,3 +286,15 @@ describe('List delete', () => {
         expect(shifted).toBeNull()
     });
 });
+describe('List removeSingle', () => {
+    it('should reset a list containing a single node after deleting said node', () => {
+        const newList = new SinglyLinkedList;
+        newList.push('first');
+        const oldHead = newList.resetList();
+        expect(newList.tail).toBeNull();
+        expect(newList.head).toBeNull();
+        expect(oldHead.next).toBeNull();
+        expect(oldHead.val).toEqual('first')
+        expect(newList.length).toEqual(0)
+    });
+});
