@@ -47,3 +47,8 @@ a mini demo for SLL
 
 - Add pop method to list, it removes the list's tail
 - Add pop test
+
+### Shift
+
+- Add shift method, it removes the head node
+- Add shift test

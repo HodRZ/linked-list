@@ -82,6 +82,23 @@ class SinglyLinkedList {
             return oldTail
         }
     }
+    shift() {
+        if (!this.head) return null;
+        if (this.length === 1) {
+            const removed = this.head
+            this.head.next = null;
+            this.tail = null;
+            this.head = null;
+            this.length--;
+            return removed;
+        } else {
+            const removed = this.head;
+            this.head = this.head.next;
+            removed.next = null;
+            this.length--;
+            return removed
+        }
+    }
 };
 
 module.exports = { SinglyLinkedList }
