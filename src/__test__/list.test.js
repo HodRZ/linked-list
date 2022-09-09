@@ -155,6 +155,7 @@ describe('List update', () => {
         newList.push('third');
         const updated = newList.update(5, 'updated')
         expect(updated).toBeNull()
+     });
 });
 
 describe('List pop', () => {
