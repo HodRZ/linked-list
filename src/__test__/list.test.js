@@ -155,5 +155,63 @@ describe('List update', () => {
         newList.push('third');
         const updated = newList.update(5, 'updated')
         expect(updated).toBeNull()
+});
+
+describe('List pop', () => {
+    it('should pop the tail from the list', () => {
+        const newList = new SinglyLinkedList;
+        newList.push('first');
+        newList.push('second');
+        newList.push('third');
+        const oldTail = newList.pop();
+        expect(newList.tail.val).toEqual('second');
+        expect(newList.tail.next).toBeNull();
+        expect(oldTail.next).toBeNull();
+        expect(oldTail.val).toEqual('third')
+        expect(newList.length).toEqual(2)
+    });
+    it('should empty the list if it contains one node', () => {
+        const newList = new SinglyLinkedList;
+        newList.push('first');
+        const oldTail = newList.pop();
+        expect(newList.tail).toBeNull();
+        expect(newList.head).toBeNull();
+        expect(oldTail.next).toBeNull();
+        expect(oldTail.val).toEqual('first')
+        expect(newList.length).toEqual(0)
+    });
+    it('should return null if the list is empty', () => {
+        const newList = new SinglyLinkedList
+        const poped = newList.pop()
+        expect(poped).toBeNull()
+    });
+});
+
+describe('List shift', () => {
+    it('should remove the head node of a non empty list and replace it with the next', () => {
+        const newList = new SinglyLinkedList;
+        newList.push('first');
+        newList.push('second');
+        newList.push('third');
+        const oldHead = newList.shift();
+        expect(oldHead.val).toEqual('first');
+        expect(oldHead.next).toBeNull();
+        expect(newList.head.val).toEqual('second');
+        expect(newList.length).toEqual(2);
+    });
+    it('should empty the list if it contains one node', () => {
+        const newList = new SinglyLinkedList;
+        newList.push('first');
+        const oldHead = newList.shift();
+        expect(newList.tail).toBeNull();
+        expect(newList.head).toBeNull();
+        expect(oldHead.next).toBeNull();
+        expect(oldHead.val).toEqual('first')
+        expect(newList.length).toEqual(0)
+    });
+    it('should return null if the list is empty', () => {
+        const newList = new SinglyLinkedList
+        const shifted = newList.shift()
+        expect(shifted).toBeNull()
     });
 });
