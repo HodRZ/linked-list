@@ -40,7 +40,7 @@ a mini demo for SLL
 
 ### Update
 
-- Add update method to list, it updates a spicific node value
+- Add update method to list, it updates a specific node value
 - Add update test
 
 ### Pop
@@ -52,3 +52,9 @@ a mini demo for SLL
 
 - Add shift method, it removes the head node
 - Add shift test
+
+### Delete
+
+- Add delete method, it deletes a node at specific index
+- Add delete test
+- Update delete from the middle method to use the general delete method

@@ -94,7 +94,7 @@ describe('List insert at index', () => {
         expect(prev.next.val).toEqual('new second')
         expect(inserted.next.val).toEqual('second');
     });
-    it('should return null if index is less than zero or our of range for the list', () => {
+    it('should return null if index is less than zero or out of range for the list', () => {
         const newList = new SinglyLinkedList;
         newList.push('first');
         newList.push('second');
@@ -155,7 +155,7 @@ describe('List update', () => {
         newList.push('third');
         const updated = newList.update(5, 'updated')
         expect(updated).toBeNull()
-     });
+    });
 });
 
 describe('List pop', () => {
@@ -213,6 +213,76 @@ describe('List shift', () => {
     it('should return null if the list is empty', () => {
         const newList = new SinglyLinkedList
         const shifted = newList.shift()
+        expect(shifted).toBeNull()
+    });
+});
+
+describe('List delete', () => {
+    it('should delete a node at a specific index', () => {
+        const newList = new SinglyLinkedList;
+        newList.push('first');
+        newList.push('second');
+        newList.push('third');
+        newList.push('fourth');
+        const deleted = newList.delete(2);
+        const second = newList.get(1)
+        expect(deleted.val).toEqual('third');
+        expect(deleted.next).toBeNull();
+        expect(second.next.val).toEqual('fourth')
+        expect(newList.length).toEqual(3)
+    });
+    it('should delete the tail node if index is lenght-1', () => {
+        const newList = new SinglyLinkedList;
+        newList.push('first');
+        newList.push('second');
+        newList.push('third');
+        newList.push('fourth');
+        const oldTail = newList.tail;
+        const deleted = newList.delete(3);
+        const newTail = newList.tail;
+        expect(deleted).toEqual(oldTail);
+        expect(deleted.val).toEqual('fourth');
+        expect(deleted.next).toBeNull();
+        expect(newList.tail).toEqual(newTail)
+        expect(newList.length).toEqual(3)
+    });
+    it('should delete the head node if index is 0', () => {
+        const newList = new SinglyLinkedList;
+        newList.push('first');
+        newList.push('second');
+        newList.push('third');
+        newList.push('fourth');
+        const oldHead = newList.head;
+        const deleted = newList.delete(0);
+        const newHead = newList.head;
+        expect(deleted).toEqual(oldHead);
+        expect(deleted.val).toEqual('first');
+        expect(deleted.next).toBeNull();
+        expect(newList.head).toEqual(newHead)
+        expect(newList.length).toEqual(3)
+    });
+    it('should empty the list if it contains one node', () => {
+        const newList = new SinglyLinkedList;
+        newList.push('first');
+        const oldHead = newList.delete(0);
+        expect(newList.tail).toBeNull();
+        expect(newList.head).toBeNull();
+        expect(oldHead.next).toBeNull();
+        expect(oldHead.val).toEqual('first')
+        expect(newList.length).toEqual(0)
+    });
+    it('should return null if the list is empty', () => {
+        const newList = new SinglyLinkedList
+        const shifted = newList.delete(0)
+        expect(shifted).toBeNull()
+    });
+    it('should return null if the index is out of range', () => {
+        const newList = new SinglyLinkedList
+        newList.push('first');
+        newList.push('second');
+        newList.push('third');
+        newList.push('fourth');
+        const shifted = newList.delete(5)
         expect(shifted).toBeNull()
     });
 });

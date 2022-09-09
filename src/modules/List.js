@@ -52,12 +52,14 @@ class SinglyLinkedList {
         return this
     }
     middle() {
-        const removed = this.get(Math.floor(this.length / 2));
-        const prev = this.get(Math.floor(this.length / 2) - 1);
-        prev.next = removed.next;
-        removed.next = null;
-        this.length--;
-        return removed
+        const middle = this.delete(Math.floor(this.length / 2))
+        return middle
+        // const removed = this.get(Math.floor(this.length / 2));
+        // const prev = this.get(Math.floor(this.length / 2) - 1);
+        // prev.next = removed.next;
+        // removed.next = null;
+        // this.length--;
+        // return removed
     }
     update(idx, val) {
         const updatedNode = this.get(idx)
@@ -102,6 +104,18 @@ class SinglyLinkedList {
             this.length--;
             return removed
         }
+    }
+    delete(idx) {
+        if (!this.head) return null;
+        if (idx < 0 || idx >= this.length) return null;
+        if (idx === 0) return this.shift();
+        if (idx === (this.length - 1)) return this.pop();
+        const prev = this.get(idx - 1);
+        const deleted = prev.next;
+        prev.next = deleted.next;
+        deleted.next = null;
+        this.length--;
+        return deleted
     }
 };
 
