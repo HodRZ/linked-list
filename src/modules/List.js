@@ -73,12 +73,7 @@ class SinglyLinkedList {
     pop() {
         if (!this.head) return null;
         if (this.length === 1) {
-            const removed = this.head
-            this.head.next = null;
-            this.tail = null;
-            this.head = null;
-            this.length--;
-            return removed
+            return this.resetList()
         } else {
             const newTail = this.get(this.length - 2);
             const oldTail = this.tail;
@@ -91,12 +86,7 @@ class SinglyLinkedList {
     shift() {
         if (!this.head) return null;
         if (this.length === 1) {
-            const removed = this.head
-            this.head.next = null;
-            this.tail = null;
-            this.head = null;
-            this.length--;
-            return removed;
+            return this.resetList()
         } else {
             const removed = this.head;
             this.head = this.head.next;
@@ -116,6 +106,14 @@ class SinglyLinkedList {
         deleted.next = null;
         this.length--;
         return deleted
+    }
+    resetList() {
+        const removed = this.head
+        this.head.next = null;
+        this.tail = null;
+        this.head = null;
+        this.length--;
+        return removed;
     }
 };
 
